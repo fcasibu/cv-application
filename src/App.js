@@ -1,12 +1,14 @@
 import { Component } from "react";
+import uniqid from "uniqid";
+import "./styles/App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-import "./styles/App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: uniqid(),
       formDetails: {
         aboutMe: "",
         skill: "",
@@ -42,6 +44,8 @@ class App extends Component {
     };
 
     this.changePersonalInfo = this.changePersonalInfo.bind(this);
+    this.changeSkill = this.changeSkill.bind(this);
+    this.addSkill = this.addSkill.bind(this);
   }
 
   changePersonalInfo(personalInfoObj) {
@@ -60,9 +64,29 @@ class App extends Component {
     });
   }
 
+  changeSkill(skillDetail) {
+    this.setState({
+      formDetails: {
+        skill: skillDetail,
+      },
+    });
+  }
+
+  addSkill(skillDetail) {
+    this.setState((state) => {
+      return {
+        id: uniqid(),
+        multipleDetails: {
+          skills: [...state.multipleDetails.skills, skillDetail],
+        },
+      };
+    });
+  }
+
   render() {
-    const { changePersonalInfo } = this;
-    const { personalInfo } = this.state.formDetails;
+    const { changePersonalInfo, changeSkill, addSkill } = this;
+    const { personalInfo, skill } = this.state.formDetails;
+    const { skills } = this.state.multipleDetails;
     return (
       <div className="App">
         <div className="min-h-screen container max-w-3xl mx-auto flex flex-col gap-10 p-10 bg-slate-500">
@@ -70,6 +94,10 @@ class App extends Component {
           <Main
             onChangePersonalInfo={changePersonalInfo}
             personalInfo={personalInfo}
+            onChangeSkill={changeSkill}
+            onAddSkill={addSkill}
+            skills={skills}
+            uniqueId={this.state.id}
           />
         </div>
       </div>
