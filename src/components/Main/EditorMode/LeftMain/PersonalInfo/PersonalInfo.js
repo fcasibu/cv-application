@@ -58,6 +58,10 @@ const PersonalInfo = (props) => {
     setStatus(true);
   };
 
+  const editClickHandler = () => {
+    setStatus(false);
+  };
+
   return (
     <form className="flex flex-col gap-5" onSubmit={submitHandler}>
       <input
@@ -132,7 +136,13 @@ const PersonalInfo = (props) => {
         />
       </div>
       <div className="flex gap-5">
-        <button className="bg-white p-2 rounded">Edit Info</button>
+        <button
+          type="button"
+          className="bg-white p-2 rounded"
+          onClick={editClickHandler}
+        >
+          Edit Info
+        </button>
         <button type="submit" className="bg-white p-2 rounded">
           Submit Info
         </button>
