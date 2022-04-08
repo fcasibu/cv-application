@@ -2,10 +2,17 @@ import { Component } from "react";
 import LeftMain from "./EditorMode/LeftMain/LeftMain";
 
 const Main = (props) => {
-  const { onChangePersonalInfo } = props;
+  const { onChangePersonalInfo, onChangeSkill, onAddSkill, skills, uniqueId } =
+    props;
   return (
     <div className="flex">
-      <LeftMain onChangePersonalInfo={onChangePersonalInfo} />
+      <LeftMain
+        onChangePersonalInfo={onChangePersonalInfo}
+        onChangeSkill={onChangeSkill}
+        onAddSkill={onAddSkill}
+        skills={skills}
+        uniqueId={uniqueId}
+      />
       <div></div>
     </div>
   );

@@ -5,13 +5,14 @@ const OneInput = (props) => {
 
   const changeInputHandler = (event) => {
     setInput(event.target.value);
+    props.onGetValue(event.target.value);
   };
 
   return (
     <div>
       <input
         type="text"
-        value={input}
+        value={props.isDone ? "" : input}
         onChange={changeInputHandler}
         className="w-full p-2"
         placeholder={props.inputName}

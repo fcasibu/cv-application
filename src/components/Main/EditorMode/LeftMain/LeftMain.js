@@ -4,11 +4,17 @@ import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Skills from "./Skills/Skills";
 
 const LeftMain = (props) => {
-  const { onChangePersonalInfo } = props;
+  const { onChangePersonalInfo, onChangeSkill, onAddSkill, skills, uniqueId } =
+    props;
   return (
     <div className="flex flex-col gap-10">
       <PersonalInfo onChangePersonalInfo={onChangePersonalInfo} />
-      <Skills />
+      <Skills
+        onChangeSkill={onChangeSkill}
+        onAddSkill={onAddSkill}
+        skills={skills}
+        uniqueId={uniqueId}
+      />
       <Interests />
     </div>
   );
