@@ -26,7 +26,7 @@ CV-Application project for The Odin Project. Made with React.
         - [x] Email
         - [x] Github
         - [x] LinkedIn
-      - [ ] Skills
+      - [x] Skills
       - [ ] Interests
     - [ ] RightMain
       - [ ] About
