@@ -67,7 +67,7 @@ const PersonalInfo = (props) => {
       <input
         type="text"
         placeholder="Full Name"
-        className="p-2 border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+        className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
         value={fullName}
         onChange={changeFullNameHandler}
         disabled={!!status}
@@ -85,7 +85,7 @@ const PersonalInfo = (props) => {
         <input
           type="text"
           placeholder="City"
-          className="p-1 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+          className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={location}
           onChange={changeLocationHandler}
           disabled={!!status}
@@ -96,7 +96,7 @@ const PersonalInfo = (props) => {
         <input
           type="text"
           placeholder="Phone Number"
-          className="p-1 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+          className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={phoneNumber}
           onChange={changePhoneNumberHandler}
           disabled={!!status}
@@ -107,7 +107,7 @@ const PersonalInfo = (props) => {
         <input
           type="text"
           placeholder="Email Address"
-          className="p-1 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+          className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={email}
           onChange={changeEmailHandler}
           disabled={!!status}
@@ -118,7 +118,7 @@ const PersonalInfo = (props) => {
         <input
           type="text"
           placeholder="Github Profile"
-          className="p-1 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+          className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={github}
           onChange={changeGithubHandler}
           disabled={!!status}
@@ -129,7 +129,7 @@ const PersonalInfo = (props) => {
         <input
           type="text"
           placeholder="LinkedIn Profile"
-          className="p-1 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
+          className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={linkedin}
           onChange={changeLinkedinHandler}
           disabled={!!status}
