@@ -85,8 +85,13 @@ class App extends Component {
     });
   }
 
-  addSkill(skillDetail) {
+  addSkill() {
+    const skillDetail = {
+      name: this.state.formDetails.skill,
+      id: this.state.skillsId,
+    };
     this.setState((state) => {
+      console.log(this.state.multipleDetails.skills);
       return {
         skillsId: uniqid(),
         multipleDetails: {
@@ -98,8 +103,13 @@ class App extends Component {
     });
   }
 
-  addInterest(interestDetail) {
+  addInterest() {
+    const interestDetail = {
+      name: this.state.formDetails.interest,
+      id: this.state.interestsId,
+    };
     this.setState((state) => {
+      console.log(this.state.multipleDetails.interests);
       return {
         interestsId: uniqid(),
         multipleDetails: {

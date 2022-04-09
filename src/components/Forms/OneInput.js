@@ -10,11 +10,7 @@ const OneInput = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const obj = {
-      id: props.id,
-      name: input,
-    };
-    props.onAdd(obj);
+    props.onAdd();
     setInput("");
   };
 
