@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode: "editor",
       uniqueId: uniqid(),
       formDetails: {
         aboutMe: "",
@@ -50,6 +51,7 @@ class App extends Component {
     this.changeSkill = this.changeSkill.bind(this);
     this.changeInterest = this.changeInterest.bind(this);
     this.changeAboutMe = this.changeAboutMe.bind(this);
+    this.changeMode = this.changeMode.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.addInterest = this.addInterest.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
@@ -127,6 +129,13 @@ class App extends Component {
         aboutMe: aboutDetail,
       },
     });
+  }
+
+  changeMode(mode) {
+    this.setState({
+      mode,
+    });
+    console.log(this.state.mode);
   }
 
   addSkill() {
@@ -225,6 +234,7 @@ class App extends Component {
       changeSkill,
       changeInterest,
       changeAboutMe,
+      changeMode,
       addSkill,
       deleteSkill,
       addInterest,
@@ -235,12 +245,13 @@ class App extends Component {
     const { personalInfo } = this.state.formDetails;
     const { skills, interests, workExperience, education } =
       this.state.multipleDetails;
-    const { uniqueId } = this.state;
+    const { uniqueId, mode } = this.state;
     return (
       <div className="App bg-slate-800">
         <div className="min-h-screen container max-w-3xl mx-auto flex flex-col gap-10 p-10 bg-white">
-          <Header />
+          <Header onChangeMode={changeMode} />
           <Main
+            mode={mode}
             uniqueId={uniqueId}
             skills={skills}
             interests={interests}

@@ -1,5 +1,5 @@
-import LeftMain from "./EditorMode/LeftMain/LeftMain";
-import RightMain from "./EditorMode/RightMain/RightMain";
+import LeftMainEditor from "./EditorMode/LeftMain/LeftMain";
+import RightMainEditor from "./EditorMode/RightMain/RightMain";
 
 const Main = (props) => {
   const {
@@ -15,15 +15,16 @@ const Main = (props) => {
     interests,
     education,
     workExperience,
+    mode,
     uniqueId,
     onDeleteSkill,
     onDeleteInterest,
     onDeleteWorkExperience,
     onDeleteEducation,
   } = props;
-  return (
+  return mode === "editor" ? (
     <div className="flex gap-5">
-      <LeftMain
+      <LeftMainEditor
         onChangePersonalInfo={onChangePersonalInfo}
         onChangeSkill={onChangeSkill}
         onChangeInterest={onChangeInterest}
@@ -35,7 +36,7 @@ const Main = (props) => {
         onDeleteSkill={onDeleteSkill}
         onDeleteInterest={onDeleteInterest}
       />
-      <RightMain
+      <RightMainEditor
         onChangeAboutMe={onChangeAboutMe}
         onChangeWorkExperience={onChangeWorkExperience}
         onChangeEducation={onChangeEducation}
@@ -46,6 +47,8 @@ const Main = (props) => {
         onDeleteEducation={onDeleteEducation}
       />
     </div>
+  ) : (
+    <div>Hello</div>
   );
 };
 

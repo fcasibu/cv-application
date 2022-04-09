@@ -2,7 +2,7 @@ import Interests from "./Interests/Interests";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Skills from "./Skills/Skills";
 
-const LeftMain = (props) => {
+const LeftMainEditor = (props) => {
   const {
     onChangePersonalInfo,
     onChangeSkill,
@@ -36,4 +36,4 @@ const LeftMain = (props) => {
   );
 };
 
-export default LeftMain;
+export default LeftMainEditor;

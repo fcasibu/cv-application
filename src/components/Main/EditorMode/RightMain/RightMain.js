@@ -2,7 +2,7 @@ import About from "./About/About";
 import Education from "./Education/Education";
 import WorkExperience from "./WorkExperience/WorkExperience";
 
-const RightMain = (props) => {
+const RightMainEditor = (props) => {
   const {
     onChangeAboutMe,
     onChangeWorkExperience,
@@ -32,4 +32,4 @@ const RightMain = (props) => {
   );
 };
 
-export default RightMain;
+export default RightMainEditor;
