@@ -15,6 +15,7 @@ CV-Application project for The Odin Project. Made with React.
 ## TODO
 
 - App
+  - [ ] make app look better!
   - [ ] Header
   - [ ] Main
     - [x] LeftMain
@@ -29,7 +30,7 @@ CV-Application project for The Odin Project. Made with React.
       - [x] Skills
       - [x] Interests
     - [ ] RightMain
-      - [ ] About
+      - [x] About
       - [ ] Work Experience
         - [ ] Role
         - [ ] Company
