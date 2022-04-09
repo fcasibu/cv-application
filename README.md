@@ -31,11 +31,11 @@ CV-Application project for The Odin Project. Made with React.
       - [x] Interests
     - [ ] RightMain
       - [x] About
-      - [ ] Work Experience
-        - [ ] Role
-        - [ ] Company
-        - [ ] Date
-        - [ ] Achievements/Description
+      - [x] Work Experience
+        - [x] Role
+        - [x] Company
+        - [x] Date
+        - [x] Achievements/Description
       - [ ] Education
         - [ ] Degree
         - [ ] School Name
