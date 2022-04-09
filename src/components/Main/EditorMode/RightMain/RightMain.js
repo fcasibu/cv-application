@@ -11,7 +11,7 @@ const RightMain = (props) => {
     education,
     uniqueId,
     onDeleteWorkExperience,
-    onDeleteEducaion,
+    onDeleteEducation,
   } = props;
   return (
     <div className="flex flex-col flex-1 gap-5">
@@ -26,7 +26,7 @@ const RightMain = (props) => {
         onChangeEducation={onChangeEducation}
         education={education}
         uniqueId={uniqueId}
-        onDeleteEducaion={onDeleteEducaion}
+        onDeleteEducation={onDeleteEducation}
       />
     </div>
   );
