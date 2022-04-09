@@ -29,14 +29,14 @@ CV-Application project for The Odin Project. Made with React.
         - [x] LinkedIn
       - [x] Skills
       - [x] Interests
-    - [ ] RightMain
+    - [x] RightMain
       - [x] About
       - [x] Work Experience
         - [x] Role
         - [x] Company
         - [x] Date
         - [x] Achievements/Description
-      - [ ] Education
-        - [ ] Degree
-        - [ ] School Name
-        - [ ] Date
+      - [x] Education
+        - [x] Degree
+        - [x] School Name
+        - [x] Date
