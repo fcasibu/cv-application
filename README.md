@@ -16,6 +16,7 @@ CV-Application project for The Odin Project. Made with React.
 
 - App
   - [ ] make app look better!
+  - [ ] be able to convert to pdf
   - [ ] Header
   - [ ] Main
     - [x] LeftMain
