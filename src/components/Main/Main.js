@@ -1,4 +1,3 @@
-import { Component } from "react";
 import LeftMain from "./EditorMode/LeftMain/LeftMain";
 import RightMain from "./EditorMode/RightMain/RightMain";
 

@@ -1,4 +1,3 @@
-import { Component } from "react";
 import Interests from "./Interests/Interests";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Skills from "./Skills/Skills";
@@ -36,20 +35,5 @@ const LeftMain = (props) => {
     </div>
   );
 };
-
-// class LeftMain extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-
-//   render() {
-//     return (
-//       <div clasName="flex">
-//         <div>{this.state}</div>
-//       </div>
-//     );
-//   }
-// }
 
 export default LeftMain;

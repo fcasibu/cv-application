@@ -85,7 +85,7 @@ class App extends Component {
           ],
           skills: [...state.multipleDetails.skills],
           interests: [...state.multipleDetails.interests],
-          education: [...state.multipleDetails.educaion],
+          education: [...state.multipleDetails.education],
         },
       };
     });
@@ -141,6 +141,7 @@ class App extends Component {
           workExperience: [...state.multipleDetails.workExperience],
           skills: [...state.multipleDetails.skills, skillDetail],
           interests: [...state.multipleDetails.interests],
+          education: [...state.multipleDetails.education],
         },
       };
     });
@@ -158,6 +159,7 @@ class App extends Component {
           workExperience: [...state.multipleDetails.workExperience],
           skills: [...state.multipleDetails.skills],
           interests: [...state.multipleDetails.interests, interestDetail],
+          education: [...state.multipleDetails.education],
         },
       };
     });
