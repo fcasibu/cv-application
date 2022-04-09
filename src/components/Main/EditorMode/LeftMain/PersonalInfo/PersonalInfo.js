@@ -138,14 +138,14 @@ const PersonalInfo = (props) => {
       <div className="flex gap-5">
         <button
           type="button"
-          className="bg-slate-500 text-white font-bold p-2 rounded"
+          className="bg-slate-500 text-white font-bold p-2 rounded hover:bg-slate-800 transition-colors ease-in-out delay-75"
           onClick={editClickHandler}
         >
           Edit Info
         </button>
         <button
           type="submit"
-          className="bg-slate-500 text-white font-bold p-2 rounded"
+          className="bg-slate-500 text-white font-bold p-2 rounded hover:bg-slate-800 transition-colors ease-in-out delay-75"
         >
           Submit Info
         </button>

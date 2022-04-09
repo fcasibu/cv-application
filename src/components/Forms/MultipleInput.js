@@ -98,7 +98,7 @@ const MultipleInput = (props) => {
 
       <button
         type="submit"
-        className="bg-slate-500 text-white font-bold p-2 rounded mt-3"
+        className="bg-slate-500 text-white font-bold p-2 rounded mt-3 hover:bg-slate-800 transition-colors ease-in-out delay-75"
       >
         + Add
       </button>
