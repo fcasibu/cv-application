@@ -1,26 +1,14 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import InputComponent from "../../../../InputForm/InputForm";
+import OneInput from "../../../../Forms/OneInput";
 
 const Skills = (props) => {
-  const [skill, setSkill] = useState("");
-  const [isDone, setIsDone] = useState(false);
-
-  const getSkillHandler = (value) => {
-    setSkill(value);
-    props.onChangeSkill(skill);
-    setIsDone(false);
+  const getValue = (value) => {
+    props.onChangeSkill(value);
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const skillObj = {
-      id: props.uniqueId,
-      skillName: skill,
-    };
-    props.onAddSkill(skillObj);
-    setIsDone(true);
+  const deleteClickHandler = (event) => {
+    const filteredList = props.skills.filter((el) => el.id !== event.target.id);
+    props.onDeleteSkill(filteredList);
   };
 
   return (
@@ -29,21 +17,23 @@ const Skills = (props) => {
       {props.skills.map((el) => {
         return (
           <div key={el.id} className="flex justify-between items-center mb-2">
-            <div className="text-white font-bold">{el.skillName}</div>
-            <FontAwesomeIcon icon={faX} className="text-white cursor-pointer" />
+            <div className="text-slate-700 font-bold">{el.name}</div>
+            <button
+              className="text-slate-700 cursor-pointer font-bold"
+              id={el.id}
+              onClick={deleteClickHandler}
+            >
+              X
+            </button>
           </div>
         );
       })}
-      <form onSubmit={submitHandler}>
-        <InputComponent
-          inputName="Javascript"
-          onGetValue={getSkillHandler}
-          isDone={isDone}
-        />
-        <button className="bg-white p-2 rounded mt-3" type="submit">
-          + Add
-        </button>
-      </form>
+      <OneInput
+        inputName="Javascript"
+        onGetValue={getValue}
+        onAdd={props.onAddSkill}
+        id={props.skillsId}
+      />
     </div>
   );
 };
