@@ -6,6 +6,7 @@ const Main = (props) => {
   const {
     onChangePersonalInfo,
     onChangeWorkExperience,
+    onChangeEducation,
     onChangeSkill,
     onChangeInterest,
     onChangeAboutMe,
@@ -13,11 +14,13 @@ const Main = (props) => {
     onAddInterest,
     skills,
     interests,
+    education,
     workExperience,
     uniqueId,
     onDeleteSkill,
     onDeleteInterest,
     onDeleteWorkExperience,
+    onDeleteEducation,
   } = props;
   return (
     <div className="flex gap-5">
@@ -36,11 +39,13 @@ const Main = (props) => {
       <RightMain
         onChangeAboutMe={onChangeAboutMe}
         onChangeWorkExperience={onChangeWorkExperience}
+        onChangeEducation={onChangeEducation}
         workExperience={workExperience}
+        education={education}
         uniqueId={uniqueId}
         onDeleteWorkExperience={onDeleteWorkExperience}
+        onDeleteEducation={onDeleteEducation}
       />
-      <div></div>
     </div>
   );
 };

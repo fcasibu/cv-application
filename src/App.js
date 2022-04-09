@@ -8,8 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      skillsId: uniqid(),
-      interestsId: uniqid(),
+      uniqueId: uniqid(),
       formDetails: {
         aboutMe: "",
         skill: "",
@@ -39,18 +38,24 @@ class App extends Component {
       },
       multipleDetails: {
         workExperience: [],
+        education: [],
         skills: [],
         interests: [],
       },
     };
 
     this.changePersonalInfo = this.changePersonalInfo.bind(this);
+    this.changeWorkExperience = this.changeWorkExperience.bind(this);
+    this.changeEducation = this.changeEducation.bind(this);
     this.changeSkill = this.changeSkill.bind(this);
     this.changeInterest = this.changeInterest.bind(this);
+    this.changeAboutMe = this.changeAboutMe.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.addInterest = this.addInterest.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
     this.deleteInterest = this.deleteInterest.bind(this);
+    this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
   }
 
   changePersonalInfo(personalInfoObj) {
@@ -66,6 +71,37 @@ class App extends Component {
           linkedinProfile: personalInfoObj.linkedin,
         },
       },
+    });
+  }
+
+  changeWorkExperience(workExperienceObj) {
+    this.setState((state) => {
+      return {
+        uniqueId: uniqid(),
+        multipleDetails: {
+          workExperience: [
+            ...state.multipleDetails.workExperience,
+            workExperienceObj,
+          ],
+          skills: [...state.multipleDetails.skills],
+          interests: [...state.multipleDetails.interests],
+          education: [...state.multipleDetails.educaion],
+        },
+      };
+    });
+  }
+
+  changeEducation(educationObj) {
+    this.setState((state) => {
+      return {
+        uniqueId: uniqid(),
+        multipleDetails: {
+          workExperience: [...state.multipleDetails.workExperience],
+          skills: [...state.multipleDetails.skills],
+          interests: [...state.multipleDetails.interests],
+          education: [...state.multipleDetails.education, educationObj],
+        },
+      };
     });
   }
 
@@ -85,15 +121,22 @@ class App extends Component {
     });
   }
 
+  changeAboutMe(aboutDetail) {
+    this.setState({
+      formDetails: {
+        aboutMe: aboutDetail,
+      },
+    });
+  }
+
   addSkill() {
     const skillDetail = {
       name: this.state.formDetails.skill,
-      id: this.state.skillsId,
+      id: this.state.uniqueId,
     };
     this.setState((state) => {
-      console.log(this.state.multipleDetails.skills);
       return {
-        skillsId: uniqid(),
+        uniqueId: uniqid(),
         multipleDetails: {
           workExperience: [...state.multipleDetails.workExperience],
           skills: [...state.multipleDetails.skills, skillDetail],
@@ -106,12 +149,11 @@ class App extends Component {
   addInterest() {
     const interestDetail = {
       name: this.state.formDetails.interest,
-      id: this.state.interestsId,
+      id: this.state.uniqueId,
     };
     this.setState((state) => {
-      console.log(this.state.multipleDetails.interests);
       return {
-        interestsId: uniqid(),
+        uniqueId: uniqid(),
         multipleDetails: {
           workExperience: [...state.multipleDetails.workExperience],
           skills: [...state.multipleDetails.skills],
@@ -128,6 +170,7 @@ class App extends Component {
           workExperience: state.multipleDetails.workExperience,
           skills: newSkills,
           interests: state.multipleDetails.interests,
+          education: state.multipleDetails.education,
         },
       };
     });
@@ -140,6 +183,33 @@ class App extends Component {
           workExperience: state.multipleDetails.workExperience,
           skills: state.multipleDetails.skills,
           interests: newInterests,
+          education: state.multipleDetails.education,
+        },
+      };
+    });
+  }
+
+  deleteWorkExperience(newWorkExperience) {
+    this.setState((state) => {
+      return {
+        multipleDetails: {
+          workExperience: newWorkExperience,
+          skills: state.multipleDetails.skills,
+          interests: state.multipleDetails.interests,
+          education: state.multipleDetails.education,
+        },
+      };
+    });
+  }
+
+  deleteEducation(newEducation) {
+    this.setState((state) => {
+      return {
+        multipleDetails: {
+          workExperience: state.multipleDetails.workExperience,
+          skills: state.multipleDetails.skills,
+          interests: state.multipleDetails.interests,
+          education: newEducation,
         },
       };
     });
@@ -148,32 +218,45 @@ class App extends Component {
   render() {
     const {
       changePersonalInfo,
+      changeWorkExperience,
+      changeEducation,
       changeSkill,
       changeInterest,
+      changeAboutMe,
       addSkill,
       deleteSkill,
       addInterest,
       deleteInterest,
+      deleteWorkExperience,
+      deleteEducation,
     } = this;
-    const { personalInfo, skill, interest } = this.state.formDetails;
-    const { skills, interests } = this.state.multipleDetails;
+    const { personalInfo } = this.state.formDetails;
+    const { skills, interests, workExperience, education } =
+      this.state.multipleDetails;
+    const { uniqueId } = this.state;
     return (
       <div className="App bg-slate-800">
         <div className="min-h-screen container max-w-3xl mx-auto flex flex-col gap-10 p-10 bg-white">
           <Header />
           <Main
-            interestsId={this.state.interestsId}
-            skillsId={this.state.skillsId}
-            onChangePersonalInfo={changePersonalInfo}
-            personalInfo={personalInfo}
-            onChangeSkill={changeSkill}
-            onChangeInterest={changeInterest}
-            onAddSkill={addSkill}
-            onAddInterest={addInterest}
+            uniqueId={uniqueId}
             skills={skills}
             interests={interests}
+            workExperience={workExperience}
+            education={education}
+            personalInfo={personalInfo}
+            onChangePersonalInfo={changePersonalInfo}
+            onChangeWorkExperience={changeWorkExperience}
+            onChangeEducation={changeEducation}
+            onChangeSkill={changeSkill}
+            onChangeInterest={changeInterest}
+            onChangeAboutMe={changeAboutMe}
+            onAddSkill={addSkill}
+            onAddInterest={addInterest}
             onDeleteSkill={deleteSkill}
             onDeleteInterest={deleteInterest}
+            onDeleteWorkExperience={deleteWorkExperience}
+            onDeleteEducation={deleteEducation}
           />
         </div>
       </div>

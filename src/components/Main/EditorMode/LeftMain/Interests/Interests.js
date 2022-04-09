@@ -1,4 +1,3 @@
-import { useState } from "react";
 import OneInput from "../../../../Forms/OneInput";
 
 const Interests = (props) => {
@@ -34,7 +33,7 @@ const Interests = (props) => {
         inputName="Machine Learning"
         onGetValue={getValue}
         onAdd={props.onAddInterest}
-        id={props.interestsId}
+        id={props.uniqueId}
       />
     </div>
   );

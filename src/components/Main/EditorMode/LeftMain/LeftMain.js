@@ -10,29 +10,28 @@ const LeftMain = (props) => {
     onAddSkill,
     onDeleteSkill,
     skills,
-    interestsId,
-    skillsId,
+    uniqueId,
     onChangeInterest,
     onAddInterest,
     interests,
     onDeleteInterest,
   } = props;
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 border-r-2 border-r-slate-500 pr-5">
       <PersonalInfo onChangePersonalInfo={onChangePersonalInfo} />
       <Skills
         onChangeSkill={onChangeSkill}
         onAddSkill={onAddSkill}
         onDeleteSkill={onDeleteSkill}
         skills={skills}
-        skillsId={skillsId}
+        uniqueId={uniqueId}
       />
       <Interests
         onChangeInterest={onChangeInterest}
         onAddInterest={onAddInterest}
         interests={interests}
         onDeleteInterest={onDeleteInterest}
-        interestsId={interestsId}
+        uniqueId={uniqueId}
       />
     </div>
   );

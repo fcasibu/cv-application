@@ -1,4 +1,3 @@
-import { useState } from "react";
 import OneInput from "../../../../Forms/OneInput";
 
 const Skills = (props) => {
@@ -32,7 +31,7 @@ const Skills = (props) => {
         inputName="Javascript"
         onGetValue={getValue}
         onAdd={props.onAddSkill}
-        id={props.skillsId}
+        id={props.uniqueId}
       />
     </div>
   );
