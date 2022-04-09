@@ -23,19 +23,6 @@ class App extends Component {
           githubProfile: "",
           linkedinProfile: "",
         },
-        workExperience: {
-          role: "",
-          company: "",
-          fromDate: "",
-          toDate: "",
-          jobAchievements: "",
-        },
-        education: {
-          degree: "",
-          schoolName: "",
-          fromDate: "",
-          toDate: "",
-        },
       },
       multipleDetails: {
         workExperience: [],
