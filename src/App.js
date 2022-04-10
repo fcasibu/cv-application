@@ -1,6 +1,5 @@
 import { Component } from "react";
 import uniqid from "uniqid";
-import "./styles/App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 
@@ -48,18 +47,23 @@ class App extends Component {
   }
 
   changePersonalInfo(personalInfoObj) {
-    this.setState({
-      formDetails: {
-        personalInfo: {
-          fullName: personalInfoObj.fullName,
-          currentRole: personalInfoObj.currentRole,
-          location: personalInfoObj.location,
-          phoneNumber: personalInfoObj.phoneNumber,
-          email: personalInfoObj.email,
-          githubProfile: personalInfoObj.github,
-          linkedinProfile: personalInfoObj.linkedin,
+    this.setState((state) => {
+      return {
+        formDetails: {
+          aboutMe: state.formDetails.aboutMe,
+          skill: state.formDetails.skill,
+          interest: state.formDetails.interest,
+          personalInfo: {
+            fullName: personalInfoObj.fullName,
+            currentRole: personalInfoObj.currentRole,
+            location: personalInfoObj.location,
+            phoneNumber: personalInfoObj.phoneNumber,
+            email: personalInfoObj.email,
+            githubProfile: personalInfoObj.github,
+            linkedinProfile: personalInfoObj.linkedin,
+          },
         },
-      },
+      };
     });
   }
 
@@ -95,26 +99,65 @@ class App extends Component {
   }
 
   changeSkill(skillDetail) {
-    this.setState({
-      formDetails: {
-        skill: skillDetail,
-      },
+    this.setState((state) => {
+      return {
+        formDetails: {
+          aboutMe: state.formDetails.aboutMe,
+          skill: skillDetail,
+          interest: state.formDetails.interest,
+          personalInfo: {
+            fullName: state.formDetails.personalInfo.fullName,
+            currentRole: state.formDetails.personalInfo.currentRole,
+            location: state.formDetails.personalInfo.location,
+            phoneNumber: state.formDetails.personalInfo.phoneNumber,
+            email: state.formDetails.personalInfo.email,
+            githubProfile: state.formDetails.personalInfo.github,
+            linkedinProfile: state.formDetails.personalInfo.linkedin,
+          },
+        },
+      };
     });
   }
 
   changeInterest(interestDetail) {
-    this.setState({
-      formDetails: {
-        interest: interestDetail,
-      },
+    this.setState((state) => {
+      return {
+        formDetails: {
+          aboutMe: state.formDetails.aboutMe,
+          skill: state.formDetails.skill,
+          interest: interestDetail,
+          personalInfo: {
+            fullName: state.formDetails.personalInfo.fullName,
+            currentRole: state.formDetails.personalInfo.currentRole,
+            location: state.formDetails.personalInfo.location,
+            phoneNumber: state.formDetails.personalInfo.phoneNumber,
+            email: state.formDetails.personalInfo.email,
+            githubProfile: state.formDetails.personalInfo.github,
+            linkedinProfile: state.formDetails.personalInfo.linkedin,
+          },
+        },
+      };
     });
   }
 
   changeAboutMe(aboutDetail) {
-    this.setState({
-      formDetails: {
-        aboutMe: aboutDetail,
-      },
+    this.setState((state) => {
+      return {
+        formDetails: {
+          aboutMe: aboutDetail,
+          skill: state.formDetails.skill,
+          interest: state.formDetails.interest,
+          personalInfo: {
+            fullName: state.formDetails.personalInfo.fullName,
+            currentRole: state.formDetails.personalInfo.currentRole,
+            location: state.formDetails.personalInfo.location,
+            phoneNumber: state.formDetails.personalInfo.phoneNumber,
+            email: state.formDetails.personalInfo.email,
+            githubProfile: state.formDetails.personalInfo.github,
+            linkedinProfile: state.formDetails.personalInfo.linkedin,
+          },
+        },
+      };
     });
   }
 
@@ -122,7 +165,6 @@ class App extends Component {
     this.setState({
       mode,
     });
-    console.log(this.state.mode);
   }
 
   addSkill() {
@@ -229,7 +271,7 @@ class App extends Component {
       deleteWorkExperience,
       deleteEducation,
     } = this;
-    const { personalInfo } = this.state.formDetails;
+    const { personalInfo, aboutMe } = this.state.formDetails;
     const { skills, interests, workExperience, education } =
       this.state.multipleDetails;
     const { uniqueId, mode } = this.state;
@@ -242,6 +284,7 @@ class App extends Component {
             uniqueId={uniqueId}
             skills={skills}
             interests={interests}
+            aboutMe={aboutMe}
             workExperience={workExperience}
             education={education}
             personalInfo={personalInfo}

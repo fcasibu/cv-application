@@ -10,7 +10,7 @@ const PersonalInfo = (props) => {
   const { personalInfo } = props;
   return (
     <div className="flex flex-col gap-1 justify-start items-start">
-      <h2 className="font-bold text-3xl text-slate-800">
+      <h2 className="font-bold text-[25px] text-slate-800">
         {personalInfo.fullName || "Full Name"}
       </h2>
       <h3 className="font-bold text-lg text-slate-600">

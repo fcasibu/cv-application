@@ -1,5 +1,7 @@
 import LeftMainEditor from "./EditorMode/LeftMain/LeftMain";
 import RightMainEditor from "./EditorMode/RightMain/RightMain";
+import LeftMainPreview from "./PreviewMode/LeftMain/LeftMainPreview";
+import RightMainPreview from "./PreviewMode/RightMain/RightMainPreview";
 
 const Main = (props) => {
   const {
@@ -12,9 +14,11 @@ const Main = (props) => {
     onAddSkill,
     onAddInterest,
     skills,
+    aboutMe,
     interests,
     education,
     workExperience,
+    personalInfo,
     mode,
     uniqueId,
     onDeleteSkill,
@@ -22,33 +26,51 @@ const Main = (props) => {
     onDeleteWorkExperience,
     onDeleteEducation,
   } = props;
-  return mode === "editor" ? (
-    <div className="flex gap-5">
-      <LeftMainEditor
-        onChangePersonalInfo={onChangePersonalInfo}
-        onChangeSkill={onChangeSkill}
-        onChangeInterest={onChangeInterest}
-        onAddSkill={onAddSkill}
-        onAddInterest={onAddInterest}
-        skills={skills}
-        interests={interests}
-        uniqueId={uniqueId}
-        onDeleteSkill={onDeleteSkill}
-        onDeleteInterest={onDeleteInterest}
-      />
-      <RightMainEditor
-        onChangeAboutMe={onChangeAboutMe}
-        onChangeWorkExperience={onChangeWorkExperience}
-        onChangeEducation={onChangeEducation}
-        workExperience={workExperience}
-        education={education}
-        uniqueId={uniqueId}
-        onDeleteWorkExperience={onDeleteWorkExperience}
-        onDeleteEducation={onDeleteEducation}
-      />
+  return (
+    <div>
+      <div
+        className="flex gap-5"
+        style={mode === "preview" ? { display: "none" } : {}}
+      >
+        <LeftMainEditor
+          onChangePersonalInfo={onChangePersonalInfo}
+          onChangeSkill={onChangeSkill}
+          onChangeInterest={onChangeInterest}
+          onAddSkill={onAddSkill}
+          onAddInterest={onAddInterest}
+          skills={skills}
+          interests={interests}
+          uniqueId={uniqueId}
+          onDeleteSkill={onDeleteSkill}
+          onDeleteInterest={onDeleteInterest}
+        />
+        <RightMainEditor
+          onChangeAboutMe={onChangeAboutMe}
+          onChangeWorkExperience={onChangeWorkExperience}
+          onChangeEducation={onChangeEducation}
+          workExperience={workExperience}
+          education={education}
+          uniqueId={uniqueId}
+          onDeleteWorkExperience={onDeleteWorkExperience}
+          onDeleteEducation={onDeleteEducation}
+        />
+      </div>
+      <div
+        className="flex gap-5"
+        style={mode === "editor" ? { display: "none" } : {}}
+      >
+        <LeftMainPreview
+          personalInfo={personalInfo}
+          skills={skills}
+          interests={interests}
+        />
+        <RightMainPreview
+          aboutMe={aboutMe}
+          workExperience={workExperience}
+          education={education}
+        />
+      </div>
     </div>
-  ) : (
-    <div>Hello</div>
   );
 };
 
