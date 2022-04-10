@@ -7,6 +7,11 @@ function Header(props) {
     props.onChangeMode("preview");
   };
 
+  const generateTemplateClickHandler = () => {
+    props.onGenerateTemplate();
+    props.onChangeMode("preview");
+  };
+
   return (
     <div className="self-center bg-white p-5">
       <h1 className="font-bold text-3xl">Create your CV!</h1>
@@ -22,6 +27,12 @@ function Header(props) {
           className="bg-slate-500 text-white font-bold p-2 rounded mt-3 hover:bg-slate-800 transition-colors ease-in-out delay-75"
         >
           Preview Mode
+        </button>
+        <button
+          onClick={generateTemplateClickHandler}
+          className="absolute top-0 left-[80px] bg-slate-500 text-white font-bold p-2 rounded mt-3 hover:bg-slate-800 transition-colors ease-in-out delay-75"
+        >
+          Generate a template
         </button>
       </div>
     </div>

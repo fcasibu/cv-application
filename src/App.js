@@ -1,3 +1,4 @@
+import { getNextKeyDef } from "@testing-library/user-event/dist/keyboard/getNextKeyDef";
 import { Component } from "react";
 import uniqid from "uniqid";
 import Header from "./components/Header/Header";
@@ -44,6 +45,7 @@ class App extends Component {
     this.deleteInterest = this.deleteInterest.bind(this);
     this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
+    this.generateTemplate = this.generateTemplate.bind(this);
   }
 
   changePersonalInfo(personalInfoObj) {
@@ -255,6 +257,64 @@ class App extends Component {
     });
   }
 
+  generateTemplate() {
+    const educationObj = {
+      degree: "BS in Software Engineering",
+      schoolName: "Iowa State University",
+      fromDate: "2000",
+      toDate: "2004",
+      id: "1",
+    };
+
+    const skillsObj = [
+      { name: "Javascript", id: "1" },
+      { name: "HTML5", id: "2" },
+      { name: "CSS3", id: "3" },
+      { name: "React", id: "4" },
+      { name: "Node.js", id: "5" },
+    ];
+
+    const interestsObj = [
+      { name: "Ruby on Rails", id: "1" },
+      { name: "Next.js", id: "2" },
+      { name: "Python", id: "3" },
+      { name: "Game Development", id: "4" },
+    ];
+
+    const workExperienceObj = {
+      role: "Web Developer",
+      company: "CRN Software Solutions",
+      jobAchievements:
+        "Designed and established multiple user-friendly websites. Formulated plans that resulted in 33% increase in user clicks. Troubleshooted multiple design problems",
+      fromDate: "2010",
+      toDate: "Present",
+      id: "1",
+    };
+    this.setState({
+      formDetails: {
+        aboutMe:
+          "Creative, project-driven professional with 10+ years of experience in web development and design. Knowledgeable in testing, and debugging processes. Proficient in creating user interfaces, troubleshooting complex issues. Built many crud applications in React.",
+        skill: "",
+        interest: "",
+        personalInfo: {
+          fullName: "John Doe",
+          currentRole: "Web Developer",
+          location: "Ames, IA",
+          phoneNumber: "123 4567 890",
+          email: "johndoe@gmail.com",
+          githubProfile: "github.com/johndoe",
+          linkedinProfile: "linkedin.com/in/johndoe",
+        },
+      },
+      multipleDetails: {
+        workExperience: [workExperienceObj],
+        education: [educationObj],
+        skills: skillsObj,
+        interests: interestsObj,
+      },
+    });
+  }
+
   render() {
     const {
       changePersonalInfo,
@@ -270,6 +330,7 @@ class App extends Component {
       deleteInterest,
       deleteWorkExperience,
       deleteEducation,
+      generateTemplate,
     } = this;
     const { personalInfo, aboutMe } = this.state.formDetails;
     const { skills, interests, workExperience, education } =
@@ -278,7 +339,10 @@ class App extends Component {
     return (
       <div className="App bg-slate-800">
         <div className="min-h-screen container max-w-3xl mx-auto flex flex-col gap-10 p-10 bg-white">
-          <Header onChangeMode={changeMode} />
+          <Header
+            onChangeMode={changeMode}
+            onGenerateTemplate={generateTemplate}
+          />
           <Main
             mode={mode}
             uniqueId={uniqueId}
