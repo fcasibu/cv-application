@@ -1,12 +1,11 @@
-import { getNextKeyDef } from "@testing-library/user-event/dist/keyboard/getNextKeyDef";
 import { Component } from "react";
 import uniqid from "uniqid";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       mode: "editor",
       uniqueId: uniqid(),
