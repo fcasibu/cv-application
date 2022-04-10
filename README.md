@@ -6,7 +6,12 @@ CV-Application project for The Odin Project. Made with React.
 
 ## Screenshots
 
+![preview](previewmode.png)
+![editor](editormode.png)
+
 ## Lessons Learned
+
+This was my first React project and it was really tough passing data from parent to child and vice versa. React is super versatile and I'm loving it so far. I have no clue of best practices yet which you can probably tell from my code :sweat_smile: I will go back to it and fix these problems as I learn more about react. This project solidified my learnings about states and components, I will study some more in order to improve how I utilize them, to reduce code smells as well.
 
 ## Acknowledgements
 
