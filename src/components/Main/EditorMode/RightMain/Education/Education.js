@@ -19,7 +19,9 @@ const Education = (props) => {
         return (
           <div key={el.id} className="relative mb-5">
             <h2 className="text-slate-700 font-bold text-lg">{el.degree}</h2>
-            <h2 className="text-black text-lg font-semibold">{el.education}</h2>
+            <h2 className="text-black text-lg font-semibold">
+              {el.schoolName}
+            </h2>
             <p className="text-sm text-slate-500 italic">
               {el.fromDate} - {el.toDate}
             </p>
