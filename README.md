@@ -4,6 +4,8 @@ CV-Application project for The Odin Project. Made with React.
 
 ## Demo
 
+[Live Preview](http://nevz9.github.io/cv-application)
+
 ## Screenshots
 
 ![preview](previewmode.png)
