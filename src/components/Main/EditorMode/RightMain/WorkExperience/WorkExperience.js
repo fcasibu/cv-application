@@ -30,7 +30,7 @@ const WorkExperience = (props) => {
             <p className="text-sm text-slate-500 italic">
               {el.fromDate} - {el.toDate}
             </p>
-            <p className="mt-2">{el.jobAchievements}</p>
+            <p className="mt-2 break-words w-[50ch]">{el.jobAchievements}</p>
             <div
               className="absolute right-0 top-2 font-bold text-lg cursor-pointer"
               id={el.id}
