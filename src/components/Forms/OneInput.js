@@ -3,10 +3,6 @@ import { useState } from "react";
 const OneInput = (props) => {
   const [input, setInput] = useState("");
 
-  const changeInputHandler = (event) => {
-    setInput(event.target.value, props.onGetValue(input));
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
     props.onAdd(input);
@@ -19,7 +15,7 @@ const OneInput = (props) => {
         <input
           type="text"
           value={input}
-          onChange={changeInputHandler}
+          onChange={(e) => setInput(e.target.value, props.onGetValue(input))}
           className="w-full p-2 border-2 border-slate-500"
           placeholder={props.inputName}
         />
