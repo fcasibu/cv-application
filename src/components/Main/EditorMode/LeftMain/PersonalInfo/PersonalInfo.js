@@ -9,52 +9,29 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const PersonalInfo = (props) => {
   const { onChangePersonalInfo } = props;
-  const [fullName, setFullName] = useState("");
-  const [currentRole, setCurrentRole] = useState("");
-  const [location, setLocation] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
-  const [linkedin, setLinkedin] = useState("");
+  const [personalInfoObj, setPersonalInfoObj] = useState({
+    fullName: "",
+    currentRole: "",
+    location: "",
+    phoneNumber: "",
+    email: "",
+    githubProfile: "",
+    linkedinProfile: "",
+  });
+  const {
+    fullName,
+    currentRole,
+    location,
+    phoneNumber,
+    email,
+    githubProfile,
+    linkedinProfile,
+  } = personalInfoObj;
   const [status, setStatus] = useState(false);
-
-  const changeLocationHandler = (event) => {
-    setLocation(event.target.value);
-  };
-
-  const changePhoneNumberHandler = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-  const changeEmailHandler = (event) => {
-    setEmail(event.target.value);
-  };
-  const changeGithubHandler = (event) => {
-    setGithub(event.target.value);
-  };
-  const changeLinkedinHandler = (event) => {
-    setLinkedin(event.target.value);
-  };
-
-  const changeFullNameHandler = (event) => {
-    setFullName(event.target.value);
-  };
-  const changeCurrentRoleHandler = (event) => {
-    setCurrentRole(event.target.value);
-  };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const personalInfo = {
-      fullName,
-      currentRole,
-      location,
-      phoneNumber,
-      email,
-      github,
-      linkedin,
-    };
-
-    onChangePersonalInfo(personalInfo);
+    onChangePersonalInfo(personalInfoObj);
     setStatus(true);
   };
 
@@ -69,7 +46,12 @@ const PersonalInfo = (props) => {
         placeholder="Full Name"
         className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
         value={fullName}
-        onChange={changeFullNameHandler}
+        onChange={(e) =>
+          setPersonalInfoObj((state) => ({
+            ...state,
+            fullName: e.target.value,
+          }))
+        }
         disabled={!!status}
       />
       <input
@@ -77,7 +59,12 @@ const PersonalInfo = (props) => {
         placeholder="Current Role"
         className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
         value={currentRole}
-        onChange={changeCurrentRoleHandler}
+        onChange={(e) =>
+          setPersonalInfoObj((state) => ({
+            ...state,
+            currentRole: e.target.value,
+          }))
+        }
         disabled={!!status}
       />
       <div className="flex gap-4 items-center">
@@ -87,7 +74,12 @@ const PersonalInfo = (props) => {
           placeholder="City"
           className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={location}
-          onChange={changeLocationHandler}
+          onChange={(e) =>
+            setPersonalInfoObj((state) => ({
+              ...state,
+              location: e.target.value,
+            }))
+          }
           disabled={!!status}
         />
       </div>
@@ -98,7 +90,12 @@ const PersonalInfo = (props) => {
           placeholder="Phone Number"
           className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={phoneNumber}
-          onChange={changePhoneNumberHandler}
+          onChange={(e) =>
+            setPersonalInfoObj((state) => ({
+              ...state,
+              phoneNumber: e.target.value,
+            }))
+          }
           disabled={!!status}
         />
       </div>
@@ -109,7 +106,12 @@ const PersonalInfo = (props) => {
           placeholder="Email Address"
           className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
           value={email}
-          onChange={changeEmailHandler}
+          onChange={(e) =>
+            setPersonalInfoObj((state) => ({
+              ...state,
+              email: e.target.value,
+            }))
+          }
           disabled={!!status}
         />
       </div>
@@ -119,8 +121,13 @@ const PersonalInfo = (props) => {
           type="text"
           placeholder="Github Profile"
           className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
-          value={github}
-          onChange={changeGithubHandler}
+          value={githubProfile}
+          onChange={(e) =>
+            setPersonalInfoObj((state) => ({
+              ...state,
+              githubProfile: e.target.value,
+            }))
+          }
           disabled={!!status}
         />
       </div>
@@ -130,8 +137,13 @@ const PersonalInfo = (props) => {
           type="text"
           placeholder="LinkedIn Profile"
           className="p-2 w-full border-2 border-slate-500 disabled:bg-slate-700 disabled:text-white"
-          value={linkedin}
-          onChange={changeLinkedinHandler}
+          value={linkedinProfile}
+          onChange={(e) =>
+            setPersonalInfoObj((state) => ({
+              ...state,
+              linkedinProfile: e.target.value,
+            }))
+          }
           disabled={!!status}
         />
       </div>

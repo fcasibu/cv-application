@@ -50,19 +50,10 @@ class App extends Component {
   changePersonalInfo(personalInfoObj) {
     this.setState((state) => {
       return {
+        ...state,
         formDetails: {
-          aboutMe: state.formDetails.aboutMe,
-          skill: state.formDetails.skill,
-          interest: state.formDetails.interest,
-          personalInfo: {
-            fullName: personalInfoObj.fullName,
-            currentRole: personalInfoObj.currentRole,
-            location: personalInfoObj.location,
-            phoneNumber: personalInfoObj.phoneNumber,
-            email: personalInfoObj.email,
-            githubProfile: personalInfoObj.github,
-            linkedinProfile: personalInfoObj.linkedin,
-          },
+          ...state.formDetails,
+          personalInfo: personalInfoObj,
         },
       };
     });
@@ -73,13 +64,11 @@ class App extends Component {
       return {
         uniqueId: uniqid(),
         multipleDetails: {
+          ...state.multipleDetails,
           workExperience: [
             ...state.multipleDetails.workExperience,
             workExperienceObj,
           ],
-          skills: [...state.multipleDetails.skills],
-          interests: [...state.multipleDetails.interests],
-          education: [...state.multipleDetails.education],
         },
       };
     });
@@ -90,9 +79,7 @@ class App extends Component {
       return {
         uniqueId: uniqid(),
         multipleDetails: {
-          workExperience: [...state.multipleDetails.workExperience],
-          skills: [...state.multipleDetails.skills],
-          interests: [...state.multipleDetails.interests],
+          ...state.multipleDetails,
           education: [...state.multipleDetails.education, educationObj],
         },
       };
@@ -103,18 +90,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         formDetails: {
-          aboutMe: state.formDetails.aboutMe,
+          ...state.formDetails,
           skill: skillDetail,
-          interest: state.formDetails.interest,
-          personalInfo: {
-            fullName: state.formDetails.personalInfo.fullName,
-            currentRole: state.formDetails.personalInfo.currentRole,
-            location: state.formDetails.personalInfo.location,
-            phoneNumber: state.formDetails.personalInfo.phoneNumber,
-            email: state.formDetails.personalInfo.email,
-            githubProfile: state.formDetails.personalInfo.github,
-            linkedinProfile: state.formDetails.personalInfo.linkedin,
-          },
         },
       };
     });
@@ -124,18 +101,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         formDetails: {
-          aboutMe: state.formDetails.aboutMe,
-          skill: state.formDetails.skill,
+          ...state.formDetails,
           interest: interestDetail,
-          personalInfo: {
-            fullName: state.formDetails.personalInfo.fullName,
-            currentRole: state.formDetails.personalInfo.currentRole,
-            location: state.formDetails.personalInfo.location,
-            phoneNumber: state.formDetails.personalInfo.phoneNumber,
-            email: state.formDetails.personalInfo.email,
-            githubProfile: state.formDetails.personalInfo.github,
-            linkedinProfile: state.formDetails.personalInfo.linkedin,
-          },
         },
       };
     });
@@ -145,18 +112,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         formDetails: {
+          ...state.formDetails,
           aboutMe: aboutDetail,
-          skill: state.formDetails.skill,
-          interest: state.formDetails.interest,
-          personalInfo: {
-            fullName: state.formDetails.personalInfo.fullName,
-            currentRole: state.formDetails.personalInfo.currentRole,
-            location: state.formDetails.personalInfo.location,
-            phoneNumber: state.formDetails.personalInfo.phoneNumber,
-            email: state.formDetails.personalInfo.email,
-            githubProfile: state.formDetails.personalInfo.github,
-            linkedinProfile: state.formDetails.personalInfo.linkedin,
-          },
         },
       };
     });
@@ -168,37 +125,33 @@ class App extends Component {
     });
   }
 
-  addSkill() {
+  addSkill(skillName) {
     const skillDetail = {
-      name: this.state.formDetails.skill,
+      name: skillName,
       id: this.state.uniqueId,
     };
     this.setState((state) => {
       return {
         uniqueId: uniqid(),
         multipleDetails: {
-          workExperience: [...state.multipleDetails.workExperience],
+          ...state.multipleDetails,
           skills: [...state.multipleDetails.skills, skillDetail],
-          interests: [...state.multipleDetails.interests],
-          education: [...state.multipleDetails.education],
         },
       };
     });
   }
 
-  addInterest() {
+  addInterest(interestName) {
     const interestDetail = {
-      name: this.state.formDetails.interest,
+      name: interestName,
       id: this.state.uniqueId,
     };
     this.setState((state) => {
       return {
         uniqueId: uniqid(),
         multipleDetails: {
-          workExperience: [...state.multipleDetails.workExperience],
-          skills: [...state.multipleDetails.skills],
+          ...state.multipleDetails,
           interests: [...state.multipleDetails.interests, interestDetail],
-          education: [...state.multipleDetails.education],
         },
       };
     });
@@ -208,10 +161,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         multipleDetails: {
-          workExperience: state.multipleDetails.workExperience,
+          ...state.multipleDetails,
           skills: newSkills,
-          interests: state.multipleDetails.interests,
-          education: state.multipleDetails.education,
         },
       };
     });
@@ -221,10 +172,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         multipleDetails: {
-          workExperience: state.multipleDetails.workExperience,
-          skills: state.multipleDetails.skills,
+          ...state.multipleDetails,
           interests: newInterests,
-          education: state.multipleDetails.education,
         },
       };
     });
@@ -234,10 +183,8 @@ class App extends Component {
     this.setState((state) => {
       return {
         multipleDetails: {
+          ...state.multipleDetails,
           workExperience: newWorkExperience,
-          skills: state.multipleDetails.skills,
-          interests: state.multipleDetails.interests,
-          education: state.multipleDetails.education,
         },
       };
     });
@@ -247,9 +194,7 @@ class App extends Component {
     this.setState((state) => {
       return {
         multipleDetails: {
-          workExperience: state.multipleDetails.workExperience,
-          skills: state.multipleDetails.skills,
-          interests: state.multipleDetails.interests,
+          ...state.multipleDetails,
           education: newEducation,
         },
       };

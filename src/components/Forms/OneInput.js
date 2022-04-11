@@ -4,13 +4,12 @@ const OneInput = (props) => {
   const [input, setInput] = useState("");
 
   const changeInputHandler = (event) => {
-    setInput(event.target.value);
-    props.onGetValue(event.target.value);
+    setInput(event.target.value, props.onGetValue(input));
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onAdd();
+    props.onAdd(input);
     setInput("");
   };
 

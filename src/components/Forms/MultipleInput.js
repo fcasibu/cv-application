@@ -1,27 +1,15 @@
 import { useState } from "react";
 
 const MultipleInput = (props) => {
-  const [firstInput, setFirstInput] = useState("");
-  const [secondInput, setSecondInput] = useState("");
-  const [thirdInput, setThirdInput] = useState("");
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
-
-  const firstInputChangeHandler = (event) => {
-    setFirstInput(event.target.value);
-  };
-  const secondInputChangeHandler = (event) => {
-    setSecondInput(event.target.value);
-  };
-  const thirdInputChangeHandler = (event) => {
-    setThirdInput(event.target.value);
-  };
-  const fromDateChangeHandler = (event) => {
-    setFromDate(event.target.value);
-  };
-  const toDateChangeHandler = (event) => {
-    setToDate(event.target.value);
-  };
+  const [multipleInputObj, setMultipleInputObj] = useState({
+    firstInput: "",
+    secondInput: "",
+    thirdInput: "",
+    fromDate: "",
+    toDate: "",
+  });
+  const { fromDate, toDate, firstInput, secondInput, thirdInput } =
+    multipleInputObj;
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -45,25 +33,37 @@ const MultipleInput = (props) => {
       };
     }
     props.onAdd(obj);
-    setFirstInput("");
-    setSecondInput("");
-    setThirdInput("");
-    setFromDate("");
-    setToDate("");
+    setMultipleInputObj({
+      firstInput: "",
+      secondInput: "",
+      thirdInput: "",
+      fromDate: "",
+      toDate: "",
+    });
   };
 
   return (
     <form onSubmit={submitHandler} className="flex flex-col gap-3">
       <input
         value={firstInput}
-        onChange={firstInputChangeHandler}
+        onChange={(e) =>
+          setMultipleInputObj({
+            ...multipleInputObj,
+            firstInput: e.target.value,
+          })
+        }
         type="text"
         className="w-full p-2 border-2 border-slate-500"
         placeholder={props.inputNames[0]}
       />
       <input
         value={secondInput}
-        onChange={secondInputChangeHandler}
+        onChange={(e) =>
+          setMultipleInputObj({
+            ...multipleInputObj,
+            secondInput: e.target.value,
+          })
+        }
         type="text"
         className="w-full p-2 border-2 border-slate-500"
         placeholder={props.inputNames[1]}
@@ -71,14 +71,24 @@ const MultipleInput = (props) => {
       <div className="flex gap-3">
         <input
           value={fromDate}
-          onChange={fromDateChangeHandler}
+          onChange={(e) =>
+            setMultipleInputObj({
+              ...multipleInputObj,
+              fromDate: e.target.value,
+            })
+          }
           type="text"
           className="w-full p-2 border-2 border-slate-500"
           placeholder="From e.g. 2010"
         />
         <input
           value={toDate}
-          onChange={toDateChangeHandler}
+          onChange={(e) =>
+            setMultipleInputObj({
+              ...multipleInputObj,
+              toDate: e.target.value,
+            })
+          }
           type="text"
           className="w-full p-2 border-2 border-slate-500"
           placeholder="To e.g. 2022 or Present"
@@ -89,7 +99,12 @@ const MultipleInput = (props) => {
       ) : (
         <textarea
           value={thirdInput}
-          onChange={thirdInputChangeHandler}
+          onChange={(e) =>
+            setMultipleInputObj({
+              ...multipleInputObj,
+              thirdInput: e.target.value,
+            })
+          }
           type="text"
           className="w-full p-2 border-2 border-slate-500"
           placeholder={props.inputNames[2]}
